@@ -35,6 +35,14 @@ app.listen(PORT, async () => {
     // Synchroniser les modèles avec la base de données sans forcer la recréation des tables
     await sequelize.sync({ force: false });
     console.log('Database synchronized');
+
+    // Vérifiez si une variable d'environnement spécifique est définie pour exécuter le seeding
+    if (process.env.RUN_SEED === 'true') {
+      console.log('Running seed script...');
+      const seedJokes = require('./seeders/seedJokes');
+      await seedJokes();
+      console.log('Seeding completed.');
+    }
   } catch (error) {
     // Afficher une erreur si la synchronisation de la base de données échoue
     console.error('Unable to synchronize the database:', error);
