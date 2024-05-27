@@ -16,7 +16,14 @@ module.exports = {
     // Port de la base de données, récupéré depuis les variables d'environnement ou 5432 par défaut
     port: process.env.DB_PORT || 5432,
     // Dialecte utilisé par Sequelize pour interagir avec la base de données (ici, PostgreSQL)
-    dialect: 'postgres'
+    dialect: 'postgres',
+    // Options de dialecte pour utiliser SSL/TLS
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   },
   // Configuration pour l'environnement de production
   production: {
@@ -31,6 +38,13 @@ module.exports = {
     // Port de la base de données, récupéré depuis les variables d'environnement ou 5432 par défaut
     port: process.env.DB_PORT || 5432,
     // Dialecte utilisé par Sequelize pour interagir avec la base de données (ici, PostgreSQL)
-    dialect: 'postgres'
+    dialect: 'postgres',
+    // Options de dialecte pour utiliser SSL/TLS
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   }
 };
