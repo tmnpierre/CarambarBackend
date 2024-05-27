@@ -21,10 +21,5 @@ const seedJokes = async () => {
   await Joke.bulkCreate(jokes);
 };
 
-// Appeler la fonction seedJokes et gérer la promesse retournée
-seedJokes().then(() => {
-  // Afficher un message dans la console une fois les blagues ajoutées
-  console.log('Blagues ajoutées');
-  // Terminer le processus Node.js
-  process.exit();
-});
+// Exporter la fonction seedJokes pour qu'elle puisse être utilisée ailleurs
+module.exports = seedJokes;
