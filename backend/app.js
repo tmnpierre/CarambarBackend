@@ -5,6 +5,8 @@ require('dotenv').config();
 const express = require('express');
 // Importer le module body-parser pour analyser les requêtes JSON
 const bodyParser = require('body-parser');
+// Importer le middleware cors pour gérer les requêtes cross-origin
+const cors = require('cors');
 // Importer l'instance sequelize depuis les modèles
 const { sequelize } = require('./models');
 // Importer les routes pour les blagues
@@ -15,6 +17,9 @@ const swaggerDocument = require('./swagger.json');
 
 // Créer une application Express
 const app = express();
+
+// Utiliser cors pour gérer les requêtes cross-origin
+app.use(cors());
 
 // Utiliser body-parser pour analyser les requêtes avec un corps JSON
 app.use(bodyParser.json());
