@@ -13,6 +13,8 @@ module.exports = {
     database: process.env.DB_NAME,
     // Hôte de la base de données, récupéré depuis les variables d'environnement ou 'localhost' par défaut
     host: process.env.DB_HOST || 'localhost',
+    // Port de la base de données, récupéré depuis les variables d'environnement ou 5432 par défaut
+    port: process.env.DB_PORT || 5432,
     // Dialecte utilisé par Sequelize pour interagir avec la base de données (ici, PostgreSQL)
     dialect: 'postgres'
   },
@@ -26,6 +28,8 @@ module.exports = {
     database: process.env.DB_NAME,
     // Hôte de la base de données, récupéré depuis les variables d'environnement ou 'localhost' par défaut
     host: process.env.DB_HOST || 'localhost',
+    // Port de la base de données, récupéré depuis les variables d'environnement ou 5432 par défaut
+    port: process.env.DB_PORT || 5432,
     // Dialecte utilisé par Sequelize pour interagir avec la base de données (ici, PostgreSQL)
     dialect: 'postgres'
   }
