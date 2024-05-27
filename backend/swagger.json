@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Jokes API",
+    "description": "API for managing jokes"
+  },
+  "host": "localhost:4000",
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/addjokes": {
+      "post": {
+        "summary": "Add a new joke",
+        "parameters": [
+          {
+            "name": "joke",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Joke"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Joke created"
+          }
+        }
+      }
+    },
+    "/jokes": {
+      "get": {
+        "summary": "Get all jokes",
+        "responses": {
+          "200": {
+            "description": "List of jokes",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Joke"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jokes/{id}": {
+      "get": {
+        "summary": "Get a joke by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Joke",
+            "schema": {
+              "$ref": "#/definitions/Joke"
+            }
+          },
+          "404": {
+            "description": "Joke not found"
+          }
+        }
+      }
+    },
+    "/randomjokes": {
+      "get": {
+        "summary": "Get a random joke",
+        "responses": {
+          "200": {
+            "description": "Random joke",
+            "schema": {
+              "$ref": "#/definitions/Joke"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Joke": {
+      "type": "object",
+      "required": ["question", "answer"],
+      "properties": {
+        "question": {
+          "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
