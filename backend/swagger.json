@@ -7,7 +7,7 @@
   },
   "host": "localhost:4000",
   "basePath": "/api",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/addjokes": {
       "post": {
