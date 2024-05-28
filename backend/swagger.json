@@ -5,9 +5,9 @@
     "title": "Jokes API",
     "description": "API for managing jokes"
   },
-  "host": "localhost:4000",
+  "host": "carambarbackend.onrender.com",
   "basePath": "/api",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/addjokes": {
       "post": {
@@ -89,11 +89,11 @@
       "properties": {
         "question": {
           "type": "string"
-          },
-          "answer": {
-            "type": "string"
-          }
+        },
+        "answer": {
+          "type": "string"
         }
       }
     }
   }
+}
